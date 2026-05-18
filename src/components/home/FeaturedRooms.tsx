@@ -1,4 +1,6 @@
 import { BedDouble, Star, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import Button from "../common/Button";
 
 const featuredRooms = [
@@ -38,20 +40,23 @@ const featuredRooms = [
 ];
 
 const FeaturedRooms = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="w-full py-24 bg-gray-50 dark:bg-black transition duration-300">
+    <section className="w-full py-24 bg-black transition duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[4px] text-sm text-gray-500 dark:text-gray-400 mb-4">
+          <p className="uppercase tracking-[4px] text-sm text-yellow-500 mb-4">
             Featured Rooms
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Discover Our Luxury Rooms
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
             Explore premium accommodations carefully designed to
             provide elegance, comfort, and unforgettable experiences.
           </p>
@@ -62,8 +67,9 @@ const FeaturedRooms = () => {
           {featuredRooms.map((room) => (
             <div
               key={room.id}
-              className="bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition duration-300"
+              className="bg-[#111111] border border-yellow-500/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-2 transition duration-300"
             >
+              
               {/* Image */}
               <div className="relative overflow-hidden">
                 <img
@@ -72,44 +78,60 @@ const FeaturedRooms = () => {
                   className="w-full h-80 object-cover hover:scale-110 transition duration-500"
                 />
 
-                <div className="absolute top-5 right-5 bg-black dark:bg-white text-white dark:text-black px-4 py-2 rounded-xl text-sm font-medium transition duration-300">
+                {/* Price */}
+                <div className="absolute top-5 right-5 bg-yellow-500 text-black px-4 py-2 rounded-xl text-sm font-semibold">
                   {room.price}/Night
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-8">
+                
+                {/* Title + Rating */}
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-2xl font-semibold text-white">
                     {room.title}
                   </h3>
 
                   <div className="flex items-center gap-1 text-yellow-500">
                     <Star size={18} fill="currentColor" />
 
-                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                    <span className="text-sm text-gray-300">
                       {room.rating}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                {/* Description */}
+                <p className="text-gray-400 leading-relaxed mb-6">
                   {room.description}
                 </p>
 
-                <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-8">
-                  <Users size={18} />
+                {/* Features */}
+                <div className="flex items-center gap-2 text-gray-400 mb-8">
+                  <Users size={18} className="text-yellow-500" />
                   <span>{room.guests}</span>
 
-                  <span className="mx-2">•</span>
+                  <span className="mx-2 text-yellow-500">•</span>
 
-                  <BedDouble size={18} />
+                  <BedDouble size={18} className="text-yellow-500" />
                   <span>King Size Bed</span>
                 </div>
 
+                {/* Button */}
                 <Button
                   btnText="Book Now"
-                  btnStyle="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200"
+                  type="button"
+                  btnStyle="w-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400"
+                  onClick={() =>
+                    navigate("/booking", {
+                      state: {
+                        image: room.image,
+                        title: room.title,
+                        price: room.price,
+                      },
+                    })
+                  }
                 />
               </div>
             </div>

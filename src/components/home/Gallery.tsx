@@ -33,38 +33,60 @@ const galleryImages = [
 
 const Gallery = () => {
   return (
-    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
+    <section className="w-full py-24 bg-black transition duration-300">
+      
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[4px] text-sm text-gray-500 dark:text-gray-400 mb-4">
+
+          <p className="uppercase tracking-[4px] text-sm text-yellow-500 mb-4">
             Gallery
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Explore Our Luxury Spaces
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
             Take a visual tour through the elegance, comfort,
             and premium experience offered at Wigo Hotel & Suite.
           </p>
+
         </div>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
           {galleryImages.map((item) => (
             <div
               key={item.id}
-              className="overflow-hidden rounded-3xl group cursor-pointer bg-gray-100 dark:bg-gray-900 transition duration-300"
+              className="
+                overflow-hidden
+                rounded-3xl
+                group
+                cursor-pointer
+                bg-gray-900
+                border border-yellow-500/30
+                hover:border-yellow-500
+                shadow-lg shadow-yellow-500/10
+                transition duration-300
+              "
             >
               <img
                 src={item.image}
                 alt="Hotel Gallery"
-                className="w-full h-[350px] object-cover group-hover:scale-110 transition duration-500"
+                className="
+                  w-full
+                  h-[350px]
+                  object-cover
+                  group-hover:scale-110
+                  transition duration-500
+                "
               />
             </div>
           ))}
+
         </div>
       </div>
     </section>

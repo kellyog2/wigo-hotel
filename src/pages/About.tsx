@@ -1,4 +1,10 @@
-import { Award, Building2, Users, ShieldCheck } from "lucide-react";
+import {
+  Award,
+  Building2,
+  Users,
+  ShieldCheck,
+} from "lucide-react";
+
 import Button from "../components/common/Button";
 
 const features = [
@@ -34,21 +40,25 @@ const features = [
 
 const About = () => {
   return (
-     <section className="w-full py-24 bg-gray-50 dark:bg-black transition duration-300">
+    <section className="w-full py-24 bg-black transition duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
         {/* Top Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+
           {/* Images */}
           <div className="relative">
             <img
               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop"
               alt="Hotel"
-              className="w-full h-[500px] object-cover rounded-3xl shadow-xl"
+              className="w-full h-[500px] object-cover rounded-3xl shadow-2xl border border-yellow-500/30"
             />
 
-            <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-lg w-56">
-              <h3 className="text-4xl font-bold text-black">10+</h3>
-              <p className="text-gray-600 mt-2">
+            {/* Experience Card */}
+            <div className="absolute -bottom-8 -right-8 bg-yellow-500 text-black p-6 rounded-2xl shadow-2xl w-56 border border-yellow-400">
+              <h3 className="text-4xl font-bold">10+</h3>
+
+              <p className="mt-2 font-medium">
                 Years of Luxury Hospitality Experience
               </p>
             </div>
@@ -56,30 +66,35 @@ const About = () => {
 
           {/* Content */}
           <div>
-            <p className="uppercase tracking-[4px] text-sm text-gray-900 dark:text-white mb-4">
+
+            {/* Small Heading */}
+            <p className="uppercase tracking-[4px] text-sm text-yellow-500 font-semibold mb-4">
               About Us
             </p>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+            {/* Main Heading */}
+            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
               Welcome To Wigo Hotel & Suite
             </h2>
 
-            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+            {/* Description */}
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
               At Wigo Hotel & Suite, we redefine luxury and comfort by
               delivering world-class hospitality experiences tailored to your
               lifestyle. From elegant rooms to exceptional services, every
               detail is designed to give you a memorable stay.
             </p>
 
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-400 text-lg leading-relaxed mb-8">
               Whether you're traveling for business, vacation, or relaxation,
               Wigo Hotel provides the perfect atmosphere of sophistication,
               comfort, and serenity.
             </p>
 
+            {/* Button */}
             <Button
               btnText="Explore More"
-              btnStyle="bg-black text-white hover:bg-gray-800"
+              btnStyle="bg-yellow-500 text-black hover:bg-yellow-400 font-semibold"
             />
           </div>
         </div>
@@ -89,22 +104,27 @@ const About = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300"
+              className="bg-gray-900 border border-yellow-500/20 p-8 rounded-3xl shadow-sm hover:shadow-yellow-500/20 hover:border-yellow-500 transition duration-300 group"
             >
-              <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mb-6">
+
+              {/* Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-yellow-500 text-black flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition duration-300">
                 {feature.icon}
               </div>
 
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              {/* Title */}
+              <h3 className="text-2xl font-semibold text-white mb-4">
                 {feature.title}
               </h3>
 
-              <p className="text-gray-600 leading-relaxed">
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed">
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

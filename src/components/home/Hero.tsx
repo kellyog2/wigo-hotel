@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+
 import Button from "../common/Button";
 
 const heroSlides = [
@@ -33,6 +34,7 @@ const heroSlides = [
 
 const Hero = () => {
   const [current, setCurrent] = useState(0);
+
   const navigate = useNavigate();
 
   const prevSlide = () => {
@@ -56,7 +58,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden bg-black">
+      
       <AnimatePresence mode="wait">
         <motion.div
           key={heroSlides[current].id}
@@ -66,6 +69,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >
+          
           {/* Background Image */}
           <img
             src={heroSlides[current].image}
@@ -73,41 +77,52 @@ const Hero = () => {
             className="w-full h-full object-cover"
           />
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50 dark:bg-black/70 transition duration-300" />
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/75" />
 
-          {/* Content */}
+          {/* Gold Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/40 via-black/30 to-black/70" />
+
+          {/* Hero Content */}
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+              
               <motion.div
                 initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="max-w-2xl text-white"
+                className="max-w-2xl"
               >
-                <p className="uppercase tracking-[5px] text-sm mb-4 text-gray-200 dark:text-gray-300">
+                
+                {/* Small Text */}
+                <p className="uppercase tracking-[5px] text-sm mb-4 text-yellow-500 font-semibold">
                   Wigo Hotel & Suite
                 </p>
 
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                {/* Heading */}
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
                   {heroSlides[current].title}
                 </h1>
 
-                <p className="text-lg md:text-xl text-gray-200 dark:text-gray-300 mb-8 leading-relaxed">
+                {/* Subtitle */}
+                <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
                   {heroSlides[current].subtitle}
                 </p>
 
-                {/* BUTTONS FIXED */}
-                <div className="flex items-center gap-4">
+                {/* Buttons */}
+                <div className="flex flex-wrap items-center gap-4">
+                  
+                  {/* Book Button */}
                   <Button
                     btnText="Book Now"
-                    btnStyle="bg-white text-black hover:bg-gray-200 dark:bg-black dark:text-white dark:hover:bg-gray-800"
+                    btnStyle="bg-yellow-500 text-black font-semibold hover:bg-yellow-400"
                     onClick={() => navigate("/booking")}
                   />
 
+                  {/* Explore Button */}
                   <Button
                     btnText="Explore Rooms"
-                    btnStyle="border border-white text-white hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white dark:hover:border-black"
+                    btnStyle="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black font-semibold"
                     onClick={() => navigate("/rooms")}
                   />
                 </div>
@@ -117,29 +132,40 @@ const Hero = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Buttons */}
+      {/* LEFT BUTTON */}
       <button
         onClick={prevSlide}
-        className="absolute left-5 top-1/2 -translate-y-1/2 bg-white/20 dark:bg-black/40 backdrop-blur-md p-3 rounded-full text-white hover:bg-white hover:text-black transition"
+        className="absolute left-5 top-1/2 -translate-y-1/2 
+        bg-black/70 border border-yellow-500 
+        backdrop-blur-md p-3 rounded-full 
+        text-yellow-500 hover:bg-yellow-500 
+        hover:text-black transition duration-300"
       >
         <ChevronLeft size={28} />
       </button>
 
+      {/* RIGHT BUTTON */}
       <button
         onClick={nextSlide}
-        className="absolute right-5 top-1/2 -translate-y-1/2 bg-white/20 dark:bg-black/40 backdrop-blur-md p-3 rounded-full text-white hover:bg-white hover:text-black transition"
+        className="absolute right-5 top-1/2 -translate-y-1/2 
+        bg-black/70 border border-yellow-500 
+        backdrop-blur-md p-3 rounded-full 
+        text-yellow-500 hover:bg-yellow-500 
+        hover:text-black transition duration-300"
       >
         <ChevronRight size={28} />
       </button>
 
-      {/* Dots */}
+      {/* DOTS */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full transition ${
-              current === index ? "bg-white w-8" : "bg-white/50"
+            className={`h-3 rounded-full transition-all duration-300 ${
+              current === index
+                ? "bg-yellow-500 w-10"
+                : "bg-yellow-500/40 w-3"
             }`}
           />
         ))}

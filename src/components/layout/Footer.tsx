@@ -15,18 +15,23 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black dark:bg-gray-950 text-white py-20 transition duration-300">
+    <footer className="w-full bg-black text-white py-20 border-t border-yellow-500/20 transition duration-300">
+      
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          
           {/* Logo & Description */}
           <div>
+            
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-white text-black p-2 rounded-xl">
+              
+              <div className="bg-yellow-500 text-black p-2 rounded-xl">
                 <Hotel size={24} />
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold text-yellow-500">
                   Wigo Hotel
                 </h2>
 
@@ -45,15 +50,17 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">
+            
+            <h3 className="text-xl font-semibold mb-6 text-yellow-500">
               Quick Links
             </h3>
 
             <ul className="space-y-4 text-gray-400">
+              
               <li>
                 <Link
                   to="/"
-                  className="hover:text-white transition duration-300"
+                  className="hover:text-yellow-500 transition duration-300"
                 >
                   Home
                 </Link>
@@ -62,7 +69,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/about"
-                  className="hover:text-white transition duration-300"
+                  className="hover:text-yellow-500 transition duration-300"
                 >
                   About
                 </Link>
@@ -71,7 +78,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/rooms"
-                  className="hover:text-white transition duration-300"
+                  className="hover:text-yellow-500 transition duration-300"
                 >
                   Rooms
                 </Link>
@@ -80,7 +87,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="hover:text-white transition duration-300"
+                  className="hover:text-yellow-500 transition duration-300"
                 >
                   Contact
                 </Link>
@@ -90,23 +97,34 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">
+            
+            <h3 className="text-xl font-semibold mb-6 text-yellow-500">
               Contact Info
             </h3>
 
             <div className="space-y-5 text-gray-400">
+              
               <div className="flex items-start gap-3">
-                <MapPin size={20} />
+                <MapPin
+                  size={20}
+                  className="text-yellow-500"
+                />
                 <p>123 Luxury Avenue, Abuja, Nigeria</p>
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone size={20} />
+                <Phone
+                  size={20}
+                  className="text-yellow-500"
+                />
                 <p>+234 812 345 6789</p>
               </div>
 
               <div className="flex items-center gap-3">
-                <Mail size={20} />
+                <Mail
+                  size={20}
+                  className="text-yellow-500"
+                />
                 <p>info@wigohotel.com</p>
               </div>
             </div>
@@ -114,17 +132,25 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-xl font-semibold mb-6">
+            
+            <h3 className="text-xl font-semibold mb-6 text-yellow-500">
               Follow Us
             </h3>
 
             <div className="flex items-center gap-4">
+              
               {/* Facebook */}
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition duration-300"
+                className="w-12 h-12 rounded-full 
+                border border-yellow-500 
+                text-yellow-500
+                flex items-center justify-center 
+                hover:bg-yellow-500 
+                hover:text-black 
+                transition duration-300"
               >
                 <FaFacebookF size={18} />
               </a>
@@ -134,7 +160,13 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition duration-300"
+                className="w-12 h-12 rounded-full 
+                border border-yellow-500 
+                text-yellow-500
+                flex items-center justify-center 
+                hover:bg-yellow-500 
+                hover:text-black 
+                transition duration-300"
               >
                 <FaInstagram size={18} />
               </a>
@@ -144,7 +176,13 @@ const Footer = () => {
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-black transition duration-300"
+                className="w-12 h-12 rounded-full 
+                border border-yellow-500 
+                text-yellow-500
+                flex items-center justify-center 
+                hover:bg-yellow-500 
+                hover:text-black 
+                transition duration-300"
               >
                 <FaXTwitter size={18} />
               </a>
@@ -153,9 +191,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-16 pt-8 text-center text-gray-500">
+        <div className="border-t border-yellow-500/20 mt-16 pt-8 text-center text-gray-500">
+          
           <p>
-            © 2026 Wigo Hotel & Suite. All rights reserved.
+            © 2026{" "}
+            <span className="text-yellow-500 font-semibold">
+              Wigo Hotel & Suite
+            </span>
+            . All rights reserved.
           </p>
         </div>
       </div>

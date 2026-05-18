@@ -3,16 +3,34 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 type RoomType = {
-  image: string;
   title: string;
   price: string;
 };
+
+const roomOptions: RoomType[] = [
+  {
+    title: "Deluxe Room",
+    price: "$120",
+  },
+  {
+    title: "Executive Suite",
+    price: "$220",
+  },
+  {
+    title: "Presidential Suite",
+    price: "$450",
+  },
+];
 
 const Booking = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const room = location.state as RoomType | undefined;
+  const selectedRoom = location.state as RoomType | undefined;
+
+  const [room, setRoom] = useState<RoomType>(
+    selectedRoom || roomOptions[0]
+  );
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -24,10 +42,31 @@ const Booking = () => {
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
 
-  const handleBooking = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRoomChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const selected = roomOptions.find(
+      (item) => item.title === e.target.value
+    );
+
+    if (selected) {
+      setRoom(selected);
+    }
+  };
+
+  const handleBooking = (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
-    if (!name || !email || !cardNumber || !cvv || !expiry || !cardName) {
+    if (
+      !name ||
+      !email ||
+      !cardNumber ||
+      !cvv ||
+      !expiry ||
+      !cardName
+    ) {
       alert("Please fill all fields");
       return;
     }
@@ -51,87 +90,72 @@ const Booking = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen py-24 overflow-hidden">
-
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop')",
-        }}
-      />
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/70" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+    <section className="w-full py-24 bg-gray-50 dark:bg-black transition duration-300">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[4px] text-sm text-gray-300 mb-4">
+          <p className="uppercase tracking-[4px] text-sm text-yellow-500 mb-4">
             Reservation
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6">
             Book Your Stay
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg">
             Reserve your luxury room at Wigo Hotel & Suite.
           </p>
         </div>
 
-        {/* Selected Room */}
-        {room && (
-          <div className="mb-10 bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-xl">
-
-            <img
-              src={room.image}
-              alt={room.title}
-              className="w-full h-72 object-cover"
-            />
-
-            <div className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-
-              {/* Room Info */}
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  {room.title}
-                </h3>
-
-                <p className="text-lg text-gray-600 dark:text-gray-300">
-                  {room.price}/night
-                </p>
-              </div>
-
-              {/* Change Room Button */}
-              <button
-                onClick={() => navigate("/rooms")}
-                className="bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-xl font-medium hover:opacity-90 transition duration-300"
-              >
-                Change Room
-              </button>
-
-            </div>
-          </div>
-        )}
-
-        {/* Form */}
-        <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12">
+        {/* Booking Form */}
+        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm p-8 md:p-12">
 
           <form
             onSubmit={handleBooking}
             className="grid md:grid-cols-2 gap-8"
           >
 
+            {/* ROOM SELECTION */}
+            <div className="md:col-span-2">
+              <label className="block mb-3 font-semibold text-black dark:text-white">
+                Select Room Plan
+              </label>
+
+              <select
+                value={room.title}
+                onChange={handleRoomChange}
+                className="w-full h-14 px-5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black text-black dark:text-white"
+              >
+                {roomOptions.map((item) => (
+                  <option
+                    key={item.title}
+                    value={item.title}
+                  >
+                    {item.title} - {item.price}/Night
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Selected Room Display */}
+            <div className="md:col-span-2 bg-gray-100 dark:bg-black rounded-2xl p-5">
+              <h3 className="text-2xl font-bold text-yellow-500">
+                {room.title}
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-300 mt-2">
+                Price: {room.price}/Night
+              </p>
+            </div>
+
+            {/* Inputs */}
             <input
               type="text"
               placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full h-14 px-5 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black"
+              className="w-full h-14 px-5 rounded-xl border"
             />
 
             <input
@@ -139,7 +163,7 @@ const Booking = () => {
               placeholder="Email Address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full h-14 px-5 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black"
+              className="w-full h-14 px-5 rounded-xl border"
             />
 
             <input
@@ -147,7 +171,7 @@ const Booking = () => {
               placeholder="Card Holder Name"
               value={cardName}
               onChange={(e) => setCardName(e.target.value)}
-              className="w-full h-14 px-5 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black"
+              className="w-full h-14 px-5 rounded-xl border"
             />
 
             <input
@@ -155,7 +179,7 @@ const Booking = () => {
               placeholder="Card Number"
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
-              className="w-full h-14 px-5 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black"
+              className="w-full h-14 px-5 rounded-xl border"
             />
 
             <input
@@ -163,7 +187,7 @@ const Booking = () => {
               placeholder="MM/YY"
               value={expiry}
               onChange={(e) => setExpiry(e.target.value)}
-              className="w-full h-14 px-5 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black"
+              className="w-full h-14 px-5 rounded-xl border"
             />
 
             <input
@@ -171,22 +195,26 @@ const Booking = () => {
               placeholder="CVV"
               value={cvv}
               onChange={(e) => setCvv(e.target.value)}
-              className="w-full h-14 px-5 rounded-xl border border-gray-300 outline-none focus:ring-2 focus:ring-black"
+              className="w-full h-14 px-5 rounded-xl border"
             />
 
             {/* Button */}
             <div className="md:col-span-2">
               <Button
                 type="submit"
-                btnText={loading ? "Processing..." : "Confirm Booking"}
-                btnStyle="w-full bg-black dark:bg-white text-white dark:text-black hover:opacity-90"
+                btnText={
+                  loading
+                    ? "Processing..."
+                    : "Confirm Booking"
+                }
+                btnStyle="w-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400"
                 disabled={loading}
               />
             </div>
 
             {/* Success Message */}
             {success && (
-              <div className="md:col-span-2 text-center text-green-600 font-bold text-lg">
+              <div className="md:col-span-2 text-green-600 font-bold text-center">
                 Booking Successful 🎉 Redirecting...
               </div>
             )}

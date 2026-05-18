@@ -32,19 +32,22 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="w-full py-24 bg-gray-50 dark:bg-black transition duration-300">
+    <section className="w-full py-24 bg-black transition duration-300">
+      
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[4px] text-sm text-gray-500 dark:text-gray-400 mb-4">
+          
+          <p className="uppercase tracking-[4px] text-sm text-yellow-500 mb-4 font-semibold">
             Testimonials
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             What Our Guests Say
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
             Discover why guests love their experience at Wigo Hotel
             & Suite through genuine customer reviews and feedback.
           </p>
@@ -52,11 +55,18 @@ const Testimonials = () => {
 
         {/* Testimonial Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-sm hover:shadow-2xl transition duration-300"
+              className="bg-[#111111] border border-yellow-500/20 
+              p-8 rounded-3xl 
+              hover:border-yellow-500 
+              hover:-translate-y-2 
+              hover:shadow-2xl hover:shadow-yellow-500/10
+              transition duration-300"
             >
+              
               {/* Stars */}
               <div className="flex items-center gap-1 text-yellow-500 mb-6">
                 {[...Array(5)].map((_, index) => (
@@ -69,24 +79,25 @@ const Testimonials = () => {
               </div>
 
               {/* Review */}
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+              <p className="text-gray-300 leading-relaxed mb-8 italic">
                 "{testimonial.review}"
               </p>
 
               {/* User */}
               <div className="flex items-center gap-4">
+                
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-yellow-500"
                 />
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-white">
                     {testimonial.name}
                   </h3>
 
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                  <p className="text-yellow-500 text-sm">
                     {testimonial.role}
                   </p>
                 </div>

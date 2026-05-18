@@ -11,7 +11,14 @@ const Container = ({
 }: ContainerProps) => {
   return (
     <div
-      className={`max-w-7xl mx-auto px-6 lg:px-10 ${className}`}
+      className={`
+        max-w-7xl 
+        mx-auto 
+        px-6 
+        lg:px-10 
+        text-white
+        ${className}
+      `}
     >
       {children}
     </div>

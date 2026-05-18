@@ -54,19 +54,22 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
+    <section className="w-full py-24 bg-black transition duration-300">
+      
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[4px] text-sm text-gray-500 dark:text-gray-400 mb-4">
+          
+          <p className="uppercase tracking-[4px] text-sm text-yellow-500 mb-4 font-semibold">
             Our Services
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Premium Hotel Services
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
             We provide world-class services designed to make your
             stay comfortable, luxurious, and unforgettable.
           </p>
@@ -74,23 +77,40 @@ const Services = () => {
 
         {/* Service Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-300 group"
+              className="bg-[#111111] border border-yellow-500/20 p-8 rounded-3xl 
+              hover:bg-yellow-500 hover:text-black 
+              hover:-translate-y-2 hover:shadow-yellow-500/20
+              transition duration-300 group"
             >
+              
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black dark:group-hover:bg-black dark:group-hover:text-white transition duration-300">
+              <div
+                className="w-16 h-16 rounded-2xl 
+                bg-yellow-500 text-black 
+                flex items-center justify-center mb-6 
+                group-hover:bg-black group-hover:text-yellow-500 
+                transition duration-300"
+              >
                 {service.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white group-hover:text-white dark:group-hover:text-black mb-4 transition duration-300">
+              <h3
+                className="text-2xl font-semibold text-white 
+                group-hover:text-black mb-4 transition duration-300"
+              >
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 dark:text-gray-300 group-hover:text-gray-300 dark:group-hover:text-gray-700 leading-relaxed transition duration-300">
+              <p
+                className="text-gray-400 group-hover:text-black/80 
+                leading-relaxed transition duration-300"
+              >
                 {service.description}
               </p>
             </div>

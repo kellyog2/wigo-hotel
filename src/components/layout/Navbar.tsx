@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import {
   Menu,
   X,
-  Hotel,
   Moon,
   Sun,
 } from "lucide-react";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+
+import logo from "../common/image/logo.png";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -41,20 +42,27 @@ const Navbar = () => {
   }, [darkMode]);
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm transition duration-300">
+    <header className="w-full fixed top-0 left-0 z-50 bg-black/90 backdrop-blur-md shadow-sm transition duration-300">
+
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 cursor-pointer">
-          <div className="bg-black dark:bg-white text-white dark:text-black p-2 rounded-xl transition duration-300">
-            <Hotel size={24} />
-          </div>
+        <Link to="/" className="flex items-center gap-3 cursor-pointer">
 
+          {/* LOGO IMAGE */}
+          <img
+            src={logo}
+            alt="Wigo Hotel Logo"
+            className="w-30 h-30 object-cover rounded-full "
+          />
+
+          {/* HOTEL NAME */}
           <div>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-xl font-bold text-yellow-500">
               Wigo Hotel
             </h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
+
+            <p className="text-xs text-gray-300 -mt-1">
               Luxury & Comfort
             </p>
           </div>
@@ -66,7 +74,7 @@ const Navbar = () => {
             <li key={link.name}>
               <Link
                 to={link.href}
-                className="text-gray-700 dark:text-gray-200 font-medium hover:text-black dark:hover:text-white transition duration-300"
+                className="text-gray-200 font-medium hover:text-yellow-500 transition duration-300"
               >
                 {link.name}
               </Link>
@@ -80,15 +88,15 @@ const Navbar = () => {
           {/* Theme Button */}
           <button
             onClick={toggleDarkMode}
-            className="w-11 h-11 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-black dark:text-white transition duration-300"
+            className="w-11 h-11 rounded-full bg-gray-900 border border-yellow-500 flex items-center justify-center text-yellow-500 transition duration-300"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
-          {/* CTA BUTTON FIXED */}
+          {/* Book Button */}
           <button
             onClick={() => navigate("/booking")}
-            className="bg-black dark:bg-white text-white dark:text-black px-5 py-2.5 rounded-xl font-medium hover:opacity-90 transition duration-300"
+            className="bg-yellow-500 text-black px-5 py-2.5 rounded-xl font-semibold hover:bg-yellow-400 transition duration-300"
           >
             Book Now
           </button>
@@ -101,7 +109,7 @@ const Navbar = () => {
           {/* Theme Button */}
           <button
             onClick={toggleDarkMode}
-            className="text-black dark:text-white"
+            className="text-yellow-500"
           >
             {darkMode ? <Sun size={24} /> : <Moon size={24} />}
           </button>
@@ -109,7 +117,7 @@ const Navbar = () => {
           {/* Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-black dark:text-white"
+            className="text-yellow-500"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -124,7 +132,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-black shadow-lg transition duration-300"
+            className="md:hidden bg-black shadow-lg transition duration-300 border-t border-yellow-500"
           >
             <ul className="flex flex-col px-6 py-6 gap-6">
 
@@ -132,7 +140,7 @@ const Navbar = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-700 dark:text-gray-200 font-medium"
+                    className="text-gray-200 font-medium hover:text-yellow-500"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
@@ -140,13 +148,13 @@ const Navbar = () => {
                 </li>
               ))}
 
-              {/* MOBILE BOOK NOW FIXED */}
+              {/* Mobile Book Button */}
               <button
                 onClick={() => {
                   setIsOpen(false);
                   navigate("/booking");
                 }}
-                className="bg-black dark:bg-white text-white dark:text-black py-3 rounded-xl font-medium transition duration-300"
+                className="bg-yellow-500 text-black py-3 rounded-xl font-semibold transition duration-300"
               >
                 Book Now
               </button>

@@ -5,15 +5,27 @@ const BackButton = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Hide on homepage (optional but clean UX)
+  // Hide on homepage
   if (location.pathname === "/") return null;
 
   return (
     <button
       onClick={() => navigate(-1)}
-      className="fixed top-24 left-6 z-50 flex items-center gap-2 
-      bg-white dark:bg-gray-900 text-gray-800 dark:text-white 
-      shadow-md px-4 py-2 rounded-xl hover:scale-105 transition"
+      className="
+        fixed top-24 left-6 z-50
+        flex items-center gap-2
+        bg-black
+        text-yellow-500
+        border border-yellow-500
+        shadow-lg shadow-yellow-500/20
+        px-5 py-3
+        rounded-xl
+        font-medium
+        hover:bg-yellow-500
+        hover:text-black
+        hover:scale-105
+        transition duration-300
+      "
     >
       <ArrowLeft size={18} />
       Back
