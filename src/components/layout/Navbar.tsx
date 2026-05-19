@@ -22,15 +22,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Get saved theme from localStorage
+  // DARK MODE STATE
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
 
+  // TOGGLE THEME
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prev) => !prev);
   };
 
+  // APPLY THEME
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -42,7 +44,9 @@ const Navbar = () => {
   }, [darkMode]);
 
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-black/90 backdrop-blur-md shadow-sm transition duration-300">
+    <header className="w-full fixed top-0 left-0 z-50 
+    bg-white/90 dark:bg-black/90 
+    backdrop-blur-md shadow-sm transition duration-300">
 
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
 
@@ -53,7 +57,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Wigo Hotel Logo"
-            className="w-30 h-30 object-cover rounded-full "
+            className="w-16 h-16 object-contain"
           />
 
           {/* HOTEL NAME */}
@@ -62,7 +66,7 @@ const Navbar = () => {
               Wigo Hotel
             </h1>
 
-            <p className="text-xs text-gray-300 -mt-1">
+            <p className="text-xs text-gray-600 dark:text-gray-300 -mt-1">
               Luxury & Comfort
             </p>
           </div>
@@ -74,7 +78,9 @@ const Navbar = () => {
             <li key={link.name}>
               <Link
                 to={link.href}
-                className="text-gray-200 font-medium hover:text-yellow-500 transition duration-300"
+                className="text-gray-800 dark:text-gray-200 
+                font-medium hover:text-yellow-500 
+                transition duration-300"
               >
                 {link.name}
               </Link>
@@ -88,7 +94,11 @@ const Navbar = () => {
           {/* Theme Button */}
           <button
             onClick={toggleDarkMode}
-            className="w-11 h-11 rounded-full bg-gray-900 border border-yellow-500 flex items-center justify-center text-yellow-500 transition duration-300"
+            className="w-11 h-11 rounded-full 
+            bg-white dark:bg-gray-900 
+            border border-yellow-500 
+            flex items-center justify-center 
+            text-yellow-500 transition duration-300"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -96,7 +106,10 @@ const Navbar = () => {
           {/* Book Button */}
           <button
             onClick={() => navigate("/booking")}
-            className="bg-yellow-500 text-black px-5 py-2.5 rounded-xl font-semibold hover:bg-yellow-400 transition duration-300"
+            className="bg-yellow-500 text-black 
+            px-5 py-2.5 rounded-xl 
+            font-semibold hover:bg-yellow-400 
+            transition duration-300"
           >
             Book Now
           </button>
@@ -132,7 +145,10 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black shadow-lg transition duration-300 border-t border-yellow-500"
+            className="md:hidden 
+            bg-white dark:bg-black 
+            shadow-lg transition duration-300 
+            border-t border-yellow-500"
           >
             <ul className="flex flex-col px-6 py-6 gap-6">
 
@@ -140,7 +156,8 @@ const Navbar = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-200 font-medium hover:text-yellow-500"
+                    className="text-gray-800 dark:text-gray-200 
+                    font-medium hover:text-yellow-500"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
@@ -154,7 +171,9 @@ const Navbar = () => {
                   setIsOpen(false);
                   navigate("/booking");
                 }}
-                className="bg-yellow-500 text-black py-3 rounded-xl font-semibold transition duration-300"
+                className="bg-yellow-500 text-black 
+                py-3 rounded-xl font-semibold 
+                transition duration-300"
               >
                 Book Now
               </button>

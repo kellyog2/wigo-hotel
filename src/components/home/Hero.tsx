@@ -58,8 +58,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
-      
+    <section className="relative w-full h-screen overflow-hidden bg-white dark:bg-black transition duration-300">
+
       <AnimatePresence mode="wait">
         <motion.div
           key={heroSlides[current].id}
@@ -69,7 +69,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >
-          
+
           {/* Background Image */}
           <img
             src={heroSlides[current].image}
@@ -77,23 +77,23 @@ const Hero = () => {
             className="w-full h-full object-cover"
           />
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/75" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60 dark:bg-black/75 transition duration-300" />
 
           {/* Gold Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/40 via-black/30 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/40 via-black/20 to-black/60 dark:from-yellow-900/50 dark:via-black/30 dark:to-black/70" />
 
           {/* Hero Content */}
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-6 lg:px-10 w-full">
-              
+
               <motion.div
                 initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
                 className="max-w-2xl"
               >
-                
+
                 {/* Small Text */}
                 <p className="uppercase tracking-[5px] text-sm mb-4 text-yellow-500 font-semibold">
                   Wigo Hotel & Suite
@@ -111,7 +111,7 @@ const Hero = () => {
 
                 {/* Buttons */}
                 <div className="flex flex-wrap items-center gap-4">
-                  
+
                   {/* Book Button */}
                   <Button
                     btnText="Book Now"
@@ -135,10 +135,11 @@ const Hero = () => {
       {/* LEFT BUTTON */}
       <button
         onClick={prevSlide}
-        className="absolute left-5 top-1/2 -translate-y-1/2 
-        bg-black/70 border border-yellow-500 
-        backdrop-blur-md p-3 rounded-full 
-        text-yellow-500 hover:bg-yellow-500 
+        className="absolute left-5 top-1/2 -translate-y-1/2
+        bg-white/20 dark:bg-black/70
+        border border-yellow-500
+        backdrop-blur-md p-3 rounded-full
+        text-yellow-500 hover:bg-yellow-500
         hover:text-black transition duration-300"
       >
         <ChevronLeft size={28} />
@@ -147,10 +148,11 @@ const Hero = () => {
       {/* RIGHT BUTTON */}
       <button
         onClick={nextSlide}
-        className="absolute right-5 top-1/2 -translate-y-1/2 
-        bg-black/70 border border-yellow-500 
-        backdrop-blur-md p-3 rounded-full 
-        text-yellow-500 hover:bg-yellow-500 
+        className="absolute right-5 top-1/2 -translate-y-1/2
+        bg-white/20 dark:bg-black/70
+        border border-yellow-500
+        backdrop-blur-md p-3 rounded-full
+        text-yellow-500 hover:bg-yellow-500
         hover:text-black transition duration-300"
       >
         <ChevronRight size={28} />

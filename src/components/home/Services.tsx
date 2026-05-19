@@ -54,7 +54,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="w-full py-24 bg-black transition duration-300">
+    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
       
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         
@@ -65,11 +65,11 @@ const Services = () => {
             Our Services
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Premium Hotel Services
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             We provide world-class services designed to make your
             stay comfortable, luxurious, and unforgettable.
           </p>
@@ -81,35 +81,55 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-[#111111] border border-yellow-500/20 p-8 rounded-3xl 
-              hover:bg-yellow-500 hover:text-black 
-              hover:-translate-y-2 hover:shadow-yellow-500/20
-              transition duration-300 group"
+              className="
+                bg-white dark:bg-[#111111]
+                border border-yellow-500/20
+                p-8
+                rounded-3xl
+                shadow-sm
+                hover:-translate-y-2
+                hover:shadow-2xl
+                hover:border-yellow-500
+                transition duration-300
+                group
+              "
             >
               
               {/* Icon */}
               <div
-                className="w-16 h-16 rounded-2xl 
-                bg-yellow-500 text-black 
-                flex items-center justify-center mb-6 
-                group-hover:bg-black group-hover:text-yellow-500 
-                transition duration-300"
+                className="
+                  w-16 h-16 rounded-2xl
+                  bg-yellow-500 text-black
+                  flex items-center justify-center mb-6
+                  group-hover:bg-black
+                  group-hover:text-yellow-500
+                  dark:group-hover:bg-yellow-500
+                  dark:group-hover:text-black
+                  transition duration-300
+                "
               >
                 {service.icon}
               </div>
 
               {/* Title */}
               <h3
-                className="text-2xl font-semibold text-white 
-                group-hover:text-black mb-4 transition duration-300"
+                className="
+                  text-2xl font-semibold
+                  text-gray-900 dark:text-white
+                  mb-4
+                  transition duration-300
+                "
               >
                 {service.title}
               </h3>
 
               {/* Description */}
               <p
-                className="text-gray-400 group-hover:text-black/80 
-                leading-relaxed transition duration-300"
+                className="
+                  text-gray-600 dark:text-gray-400
+                  leading-relaxed
+                  transition duration-300
+                "
               >
                 {service.description}
               </p>

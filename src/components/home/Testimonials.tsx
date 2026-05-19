@@ -32,7 +32,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="w-full py-24 bg-black transition duration-300">
+    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
       
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         
@@ -43,11 +43,11 @@ const Testimonials = () => {
             Testimonials
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6">
             What Our Guests Say
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             Discover why guests love their experience at Wigo Hotel
             & Suite through genuine customer reviews and feedback.
           </p>
@@ -59,12 +59,15 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-[#111111] border border-yellow-500/20 
-              p-8 rounded-3xl 
-              hover:border-yellow-500 
-              hover:-translate-y-2 
-              hover:shadow-2xl hover:shadow-yellow-500/10
-              transition duration-300"
+              className="
+                bg-white dark:bg-[#111111]
+                border border-yellow-500/20
+                p-8 rounded-3xl
+                hover:border-yellow-500
+                hover:-translate-y-2
+                hover:shadow-2xl hover:shadow-yellow-500/10
+                transition duration-300
+              "
             >
               
               {/* Stars */}
@@ -79,7 +82,7 @@ const Testimonials = () => {
               </div>
 
               {/* Review */}
-              <p className="text-gray-300 leading-relaxed mb-8 italic">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8 italic">
                 "{testimonial.review}"
               </p>
 
@@ -93,7 +96,7 @@ const Testimonials = () => {
                 />
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-black dark:text-white">
                     {testimonial.name}
                   </h3>
 

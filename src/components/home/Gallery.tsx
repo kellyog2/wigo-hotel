@@ -33,8 +33,8 @@ const galleryImages = [
 
 const Gallery = () => {
   return (
-    <section className="w-full py-24 bg-black transition duration-300">
-      
+    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
+
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Heading */}
@@ -44,11 +44,11 @@ const Gallery = () => {
             Gallery
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Explore Our Luxury Spaces
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             Take a visual tour through the elegance, comfort,
             and premium experience offered at Wigo Hotel & Suite.
           </p>
@@ -66,10 +66,10 @@ const Gallery = () => {
                 rounded-3xl
                 group
                 cursor-pointer
-                bg-gray-900
-                border border-yellow-500/30
+                bg-gray-100 dark:bg-gray-900
+                border border-yellow-500/20
                 hover:border-yellow-500
-                shadow-lg shadow-yellow-500/10
+                shadow-lg dark:shadow-yellow-500/10
                 transition duration-300
               "
             >

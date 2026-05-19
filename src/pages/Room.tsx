@@ -1,21 +1,52 @@
 import RoomCard from "../components/common/rooms/RoomCard";
+import Container from "../components/layout/Container";
 import { rooms } from "../data/Room";
 
 const Rooms = () => {
   return (
-    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section
+      className="
+        w-full py-24
+        bg-white dark:bg-black
+        transition duration-300
+      "
+    >
+      <Container>
+
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="uppercase tracking-[4px] text-sm text-gray-500 dark:text-gray-400 mb-4">
+
+          <p
+            className="
+              uppercase tracking-[4px]
+              text-sm
+              text-yellow-500
+              font-semibold
+              mb-4
+            "
+          >
             Our Rooms
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2
+            className="
+              text-4xl md:text-5xl
+              font-bold
+              text-black dark:text-white
+              mb-6
+            "
+          >
             Luxury Rooms & Suites
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+          <p
+            className="
+              max-w-2xl mx-auto
+              text-gray-700 dark:text-gray-400
+              text-lg
+              leading-relaxed
+            "
+          >
             Discover premium accommodations designed with elegance,
             comfort, and modern luxury for a memorable stay.
           </p>
@@ -35,7 +66,8 @@ const Rooms = () => {
             />
           ))}
         </div>
-      </div>
+
+      </Container>
     </section>
   );
 };

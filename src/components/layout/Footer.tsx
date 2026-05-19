@@ -12,20 +12,21 @@ import {
 } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
+import Container from "../layout/Container";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black text-white py-20 border-t border-yellow-500/20 transition duration-300">
-      
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        
+    <footer className="w-full bg-white dark:bg-black text-gray-900 dark:text-white py-20 border-t border-yellow-500/20 transition duration-300">
+
+      <Container>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
+
           {/* Logo & Description */}
           <div>
-            
+
             <div className="flex items-center gap-3 mb-6">
-              
+
               <div className="bg-yellow-500 text-black p-2 rounded-xl">
                 <Hotel size={24} />
               </div>
@@ -35,13 +36,13 @@ const Footer = () => {
                   Wigo Hotel
                 </h2>
 
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   Luxury & Comfort
                 </p>
               </div>
             </div>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
               Experience world-class hospitality, luxury
               accommodations, and unforgettable moments at
               Wigo Hotel & Suite.
@@ -50,13 +51,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            
+
             <h3 className="text-xl font-semibold mb-6 text-yellow-500">
               Quick Links
             </h3>
 
-            <ul className="space-y-4 text-gray-400">
-              
+            <ul className="space-y-4 text-gray-600 dark:text-gray-400">
+
               <li>
                 <Link
                   to="/"
@@ -97,13 +98,13 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            
+
             <h3 className="text-xl font-semibold mb-6 text-yellow-500">
               Contact Info
             </h3>
 
-            <div className="space-y-5 text-gray-400">
-              
+            <div className="space-y-5 text-gray-600 dark:text-gray-400">
+
               <div className="flex items-start gap-3">
                 <MapPin
                   size={20}
@@ -132,13 +133,13 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            
+
             <h3 className="text-xl font-semibold mb-6 text-yellow-500">
               Follow Us
             </h3>
 
             <div className="flex items-center gap-4">
-              
+
               {/* Facebook */}
               <a
                 href="https://facebook.com"
@@ -191,8 +192,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-yellow-500/20 mt-16 pt-8 text-center text-gray-500">
-          
+        <div className="border-t border-yellow-500/20 mt-16 pt-8 text-center text-gray-500 dark:text-gray-400">
+
           <p>
             © 2026{" "}
             <span className="text-yellow-500 font-semibold">
@@ -201,7 +202,7 @@ const Footer = () => {
             . All rights reserved.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };

@@ -14,16 +14,22 @@ const BackButton = () => {
       className="
         fixed top-24 left-6 z-50
         flex items-center gap-2
-        bg-black
+
+        bg-white dark:bg-black
         text-yellow-500
+
         border border-yellow-500
+
         shadow-lg shadow-yellow-500/20
+
         px-5 py-3
         rounded-xl
         font-medium
+
         hover:bg-yellow-500
         hover:text-black
         hover:scale-105
+
         transition duration-300
       "
     >

@@ -43,20 +43,20 @@ const FeaturedRooms = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full py-24 bg-black transition duration-300">
+    <section className="w-full py-24 bg-white dark:bg-black transition duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        
+
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="uppercase tracking-[4px] text-sm text-yellow-500 mb-4">
             Featured Rooms
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Discover Our Luxury Rooms
           </h2>
 
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
             Explore premium accommodations carefully designed to
             provide elegance, comfort, and unforgettable experiences.
           </p>
@@ -67,9 +67,14 @@ const FeaturedRooms = () => {
           {featuredRooms.map((room) => (
             <div
               key={room.id}
-              className="bg-[#111111] border border-yellow-500/20 rounded-3xl overflow-hidden shadow-lg hover:shadow-yellow-500/20 hover:-translate-y-2 transition duration-300"
+              className="bg-white dark:bg-[#111111]
+              border border-yellow-500/20
+              rounded-3xl overflow-hidden
+              shadow-lg hover:shadow-yellow-500/20
+              hover:-translate-y-2
+              transition duration-300"
             >
-              
+
               {/* Image */}
               <div className="relative overflow-hidden">
                 <img
@@ -86,29 +91,29 @@ const FeaturedRooms = () => {
 
               {/* Content */}
               <div className="p-8">
-                
+
                 {/* Title + Rating */}
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-semibold text-white">
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
                     {room.title}
                   </h3>
 
                   <div className="flex items-center gap-1 text-yellow-500">
                     <Star size={18} fill="currentColor" />
 
-                    <span className="text-sm text-gray-300">
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
                       {room.rating}
                     </span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-400 leading-relaxed mb-6">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                   {room.description}
                 </p>
 
                 {/* Features */}
-                <div className="flex items-center gap-2 text-gray-400 mb-8">
+                <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mb-8">
                   <Users size={18} className="text-yellow-500" />
                   <span>{room.guests}</span>
 
