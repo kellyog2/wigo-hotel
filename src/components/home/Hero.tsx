@@ -12,7 +12,7 @@ const heroSlides = [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     title: "Luxury Redefined",
     subtitle:
-      "Experience world-class comfort and elegance at Wigo Hotel & Suite.",
+      "Experience world class comfort and elegance at Wigo Hotel & Suite.",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const heroSlides = [
     id: 3,
     image:
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070&auto=format&fit=crop",
-    title: "A Five-Star Experience",
+    title: "A Five Star Experience",
     subtitle:
       "Enjoy exceptional hospitality, luxury dining, and premium services.",
   },
