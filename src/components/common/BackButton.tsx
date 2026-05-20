@@ -12,8 +12,10 @@ const BackButton = () => {
     <button
       onClick={() => navigate(-1)}
       className="
+        hidden sm:flex
+
         fixed top-24 left-6 z-50
-        flex items-center gap-2
+        items-center gap-2
 
         bg-white dark:bg-black
         text-yellow-500

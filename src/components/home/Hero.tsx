@@ -58,23 +58,37 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-white dark:bg-black transition duration-300">
+    <section
+      className="
+        relative
+        w-full
+        min-h-screen
+        overflow-hidden
+        bg-white dark:bg-black
+        transition duration-300
+      "
+    >
 
       <AnimatePresence mode="wait">
         <motion.div
           key={heroSlides[current].id}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute inset-0"
+          className="absolute inset-0 w-full overflow-hidden"
         >
 
           {/* Background Image */}
           <img
             src={heroSlides[current].image}
             alt={heroSlides[current].title}
-            className="w-full h-full object-cover"
+            className="
+              w-full
+              h-full
+              object-cover
+              object-center
+            "
           />
 
           {/* Overlay */}
@@ -95,17 +109,48 @@ const Hero = () => {
               >
 
                 {/* Small Text */}
-                <p className="uppercase tracking-[5px] text-sm mb-4 text-yellow-500 font-semibold">
+                <p
+                  className="
+                    uppercase
+                    tracking-[5px]
+                    text-xs sm:text-sm
+                    mb-4
+                    text-yellow-500
+                    font-semibold
+                  "
+                >
                   Wigo Hotel & Suite
                 </p>
 
                 {/* Heading */}
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
+                <h1
+                  className="
+                    text-4xl
+                    sm:text-5xl
+                    md:text-6xl
+                    lg:text-7xl
+                    font-bold
+                    leading-tight
+                    mb-6
+                    text-white
+                    break-words
+                  "
+                >
                   {heroSlides[current].title}
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
+                <p
+                  className="
+                    text-base
+                    sm:text-lg
+                    md:text-xl
+                    text-gray-200
+                    mb-8
+                    leading-relaxed
+                    max-w-xl
+                  "
+                >
                   {heroSlides[current].subtitle}
                 </p>
 
@@ -115,17 +160,29 @@ const Hero = () => {
                   {/* Book Button */}
                   <Button
                     btnText="Book Now"
-                    btnStyle="bg-yellow-500 text-black font-semibold hover:bg-yellow-400"
+                    btnStyle="
+                      bg-yellow-500
+                      text-black
+                      font-semibold
+                      hover:bg-yellow-400
+                    "
                     onClick={() => navigate("/booking")}
                   />
 
                   {/* Explore Button */}
                   <Button
                     btnText="Explore Rooms"
-                    btnStyle="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black font-semibold"
+                    btnStyle="
+                      border border-yellow-500
+                      text-yellow-500
+                      hover:bg-yellow-500
+                      hover:text-black
+                      font-semibold
+                    "
                     onClick={() => navigate("/rooms")}
                   />
                 </div>
+
               </motion.div>
             </div>
           </div>
@@ -135,31 +192,72 @@ const Hero = () => {
       {/* LEFT BUTTON */}
       <button
         onClick={prevSlide}
-        className="absolute left-5 top-1/2 -translate-y-1/2
-        bg-white/20 dark:bg-black/70
-        border border-yellow-500
-        backdrop-blur-md p-3 rounded-full
-        text-yellow-500 hover:bg-yellow-500
-        hover:text-black transition duration-300"
+        className="
+          absolute
+          left-3 sm:left-5
+          top-1/2
+          -translate-y-1/2
+          z-20
+
+          p-2 sm:p-3
+          rounded-full
+
+          text-yellow-500
+
+          transition duration-300
+
+          sm:bg-white/20
+          sm:dark:bg-black/70
+          sm:border sm:border-yellow-500
+          sm:backdrop-blur-md
+
+          sm:hover:bg-yellow-500
+          sm:hover:text-black
+        "
       >
-        <ChevronLeft size={28} />
+        <ChevronLeft size={24} />
       </button>
 
       {/* RIGHT BUTTON */}
       <button
         onClick={nextSlide}
-        className="absolute right-5 top-1/2 -translate-y-1/2
-        bg-white/20 dark:bg-black/70
-        border border-yellow-500
-        backdrop-blur-md p-3 rounded-full
-        text-yellow-500 hover:bg-yellow-500
-        hover:text-black transition duration-300"
+        className="
+          absolute
+          right-3 sm:right-5
+          top-1/2
+          -translate-y-1/2
+          z-20
+
+          p-2 sm:p-3
+          rounded-full
+
+          text-yellow-500
+
+          transition duration-300
+
+          sm:bg-white/20
+          sm:dark:bg-black/70
+          sm:border sm:border-yellow-500
+          sm:backdrop-blur-md
+
+          sm:hover:bg-yellow-500
+          sm:hover:text-black
+        "
       >
-        <ChevronRight size={28} />
+        <ChevronRight size={24} />
       </button>
 
       {/* DOTS */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3">
+      <div
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          -translate-x-1/2
+          flex items-center gap-3
+          z-20
+        "
+      >
         {heroSlides.map((_, index) => (
           <button
             key={index}
